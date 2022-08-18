@@ -1,17 +1,35 @@
 # Сервер
 
-На этом шаге вам необходимо иметь готовую виртуалку с Linux (я использую Debian 11).
+На этом шаге вам необходимо иметь готовую виртуалку с Linux (я использую Debian 11)
 
-Обновляет
+Далее работаем под пользователем с правами root или получаем их через su
+
+При установке Debian на шаге, где необходимо выбрать компоненты для установки, я устанавливаю только последний компонент. Хотя можно добавить еще ssh server
+
+Если вы не выбрали open ssh server, то для подключения по ssh необходимо его установить командой
+```
+apt install openssh-server
+```
+После установки включаем ssh
+```
+systemctl enable --now ssh
+```
+Проверяем запущен ли ssh
 
 ```
-apt-get update && apt-get upgrade
+systemctl status ssh
 ```
 
-Ставит необходимые зависимости
+Обновляем
 
 ```
-sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+apt update && apt upgrade
+```
+
+Ставим необходимые зависимости
+
+```
+apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
 ```
 
 Добавляет GPG ключ nginx
@@ -47,6 +65,6 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 Устанавливаем nginx:
 
 ```
-sudo apt update
-sudo apt install nginx
+apt update
+apt install nginx
 ```
