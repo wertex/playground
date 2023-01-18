@@ -1,0 +1,6 @@
+wget https://github.com/glpi-project/glpi/releases/download/10.0.5/glpi-10.0.5.tgz
+tar -xvf glpi-10.0.5.tgz
+Restore the previously backed up config, files, marketplace and plugins directory.
+systemctl stop nginx
+systemctl status nginx
+chown -R www-data:www-data glpi
