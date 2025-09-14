@@ -1,0 +1,10 @@
+
+https://github.com/glpi-project/glpi/releases/download/10.0.20/glpi-10.0.20.tgz
+
+tar -xvf glpi
+
+Копируем папку glpi в папку /var/www
+
+chown -R www-data:www-data /var/www/html/glpi
+
+проверяем la -la
