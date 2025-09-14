@@ -1,1 +1,16 @@
 
+apt install mariadb-server
+
+mysql_secure_installation
+
+sudo mysql -u root -p
+
+CREATE DATABASE glpi;
+
+CREATE USER 'glpi_user'@'localhost' IDENTIFIED BY 'ваш_пароль';
+
+GRANT ALL PRIVILEGES ON glpi.* TO 'glpi_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+EXIT;
