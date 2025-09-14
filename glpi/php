@@ -9,4 +9,16 @@ apt update
 
 apt install php8.2 php8.2-cli php8.2-common
 
-apt install php8.2-{bz2,curl,mbstring,intl}
+Документация предллагает поставить эти расширения
+apt install php8.2-{dom,fileinfo,filter,libxml,simplexml,xmlreader,xmlwriter,bcmath,curl,gd,intl,mbstring,mysqli,openssl,zlib,bz2,phar,zip,exif,ldap}
+
+Но при установке видим, что часть из них есть в 
+php8.2-common: fileinfo, phar, exif
+php8.2-xml: dom, simplexml, xmlreader, xmlwriter
+
+Сокращаем:
+apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
+
+Этих extensions нет для php8.2: filter, libxml, openssl, zlib
+
+Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.2-intl и apt install php8.2-mbstring и apt install php8.2-ldap
