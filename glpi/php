@@ -22,3 +22,6 @@ apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
 Этих extensions нет для php8.2: filter, libxml, openssl, zlib
 
 Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.2-intl и apt install php8.2-mbstring и apt install php8.2-ldap
+
+на итог
+apt install php8.2 php8.2-cli php8.2-common php8.2-xml apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
