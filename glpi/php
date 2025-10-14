@@ -25,3 +25,9 @@ apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
 
 на итог
 apt install php8.2 php8.2-cli php8.2-common php8.2-xml apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
+
+при обновлении на 11 версию запросило расширение bcmath
+проверить через консоль можно так: 
+php bin/console system:check_requirements --allow-superuser
+
+
