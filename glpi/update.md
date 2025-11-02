@@ -11,11 +11,11 @@ $mv glpi old_glpi
 Идем в репозиторий GLPI https://github.com/glpi-project/glpi/releases  
 Берем ссылку на самый новый релиз и качаем его  
 ```
-$wget https://github.com/glpi-project/glpi/releases/download/10.0.6/glpi-10.0.5.tgz
+$wget https://github.com/glpi-project/glpi/releases/download/10.0.20/glpi-10.0.20.tgz
 ```
 Распаковываем  
 ```
-tar -xvf glpi-10.0.6.tgz  
+tar -xvf glpi-10.0.20.tgz  
 ```
 В итоге у нас будет вот такая структура папок:  
 ```
