@@ -1,16 +1,27 @@
 
+```
 apt install apt-transport-https lsb-release ca-certificates wget -y
-
+```
+```
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+```
 
+```
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+```
 
+```
 apt update
-
+```
+Сам PHP ставится командой
+```
 apt install php8.2 php8.2-cli php8.2-common
+```
 
 Документация предллагает поставить эти расширения
+```
 apt install php8.2-{dom,fileinfo,filter,libxml,simplexml,xmlreader,xmlwriter,bcmath,curl,gd,intl,mbstring,mysqli,openssl,zlib,bz2,phar,zip,exif,ldap}
+```
 
 Но при установке видим, что часть из них есть в 
 php8.2-common: fileinfo, phar, exif
@@ -24,11 +35,14 @@ apt install php8.2-{bcmath,bz2,curl,gd,intl,mbstring,mysqli,zip,ldap}
 Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.2-intl и apt install php8.2-mbstring и apt install php8.2-ldap
 
 на итог
-apt install php8.2 php8.2-cli php8.2-common php8.2-xml 
+```
+apt install php8.2 php8.2-cli php8.2-common php8.2-xml
 apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
-
+```
 при обновлении на 11 версию запросило расширение bcmath
 проверить через консоль можно так: 
+```
 php bin/console system:check_requirements --allow-superuser
+```
 
 
