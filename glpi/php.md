@@ -1,4 +1,4 @@
-
+[Ссылка на документацию. Раздел PHP](https://glpi-install.readthedocs.io/en/latest/prerequisites.html#php)
 ```
 apt install apt-transport-https lsb-release ca-certificates wget -y
 ```
