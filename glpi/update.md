@@ -1,4 +1,10 @@
-Делаем резервные копии базы данных и папки с glpi  
+Останавливает web сервер
+```
+systemctl stop nginx
+systemctl status nginx
+```
+
+Делаем резервные копии базы данных и папки с glpi
 
 Идем в папку где лежит GLPI (у меня это /var/www) 
 ```
@@ -11,33 +17,46 @@ mv glpi old_glpi
 Идем в репозиторий GLPI https://github.com/glpi-project/glpi/releases  
 Берем ссылку на самый новый релиз и качаем его  
 ```
-wget https://github.com/glpi-project/glpi/releases/download/10.0.20/glpi-10.0.20.tgz
+wget https://github.com/glpi-project/glpi/releases/download/10.0.24/glpi-10.0.24.tgz
 ```
 Распаковываем  
 ```
-tar -xvf glpi-10.0.20.tgz  
+tar -xv glpi-10.0.24.tgz
 ```
 В итоге у нас будет вот такая структура папок:  
 ```
 /var/www/glpi
 ```
-Теперь нужно скопировать *config/glpicrypt.key*, *config/config_db.php*, папку *files* и *plugins*  
+Теперь нужно скопировать 
+
+*config/glpicrypt.key*
+
+*config/config_db.php*
+
+папку *files* и *plugins*
+
 Делайте это любым удобным для вас способом
 
 Проверяем все ли компоненты установлены
 ```
-php bin/console system:check_requirements
+php glpi/bin/console system:check_requirements
 ```
 Теперь нужно обноавить базу данных
 ```
 php glpi/bin/console db:update
 ```
-Проверяем в появившейся табличке данные и соглашаемся  
-Ждем окончания миграции  
-Теперь нужно раздать права на папки  
+Проверяем в появившейся табличке данные и соглашаемся
+
+Ждем окончания миграции
+
+Теперь нужно раздать права на папки
 ```
-systemctl stop nginx
-systemctl status nginx
 chown -R www-data:www-data glpi
-systemctl start nginx
 ```
+Стартуем web сервер
+```
+systemctl start nginx
+systemctl status nginx
+```
+
+
