@@ -1,5 +1,7 @@
 # Сервер
 
+[Офф инструкция тут](https://nginx.org/en/linux_packages.html#Debian)
+
 На этом шаге вам необходимо иметь готовую виртуалку с Linux (я использую Debian)
 
 Далее работаем под пользователем с правами root или получаем их через su
@@ -83,7 +85,6 @@ apt install nginx
 Запустим и проверим
 ```
 systemctl start nginx
-```
 ```
 systemctl status nginx
 ```
