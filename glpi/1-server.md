@@ -1,6 +1,6 @@
 # Сервер
 
-На этом шаге вам необходимо иметь готовую виртуалку с Linux (я использую Debian 11)
+На этом шаге вам необходимо иметь готовую виртуалку с Linux (я использую Debian)
 
 Далее работаем под пользователем с правами root или получаем их через su
 
@@ -42,8 +42,7 @@ apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
 Добавляет GPG ключ nginx
 
 ```
-curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
-    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 ```
 
 Убеждаемся, что загруженный файл содержит правильный ключ:
@@ -65,8 +64,14 @@ uid                      nginx signing key <signing-key@nginx.com>
 Настраивает репозиторий для стабильных пакетов nginx:
 
 ```
-echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
-    | sudo tee /etc/apt/preferences.d/99nginx
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+https://nginx.org/packages/debian `lsb_release -cs` nginx" \
+    | tee /etc/apt/sources.list.d/nginx.list
+```
+
+Сделаем так, чтобы наши пакеты имели приоритет
+```
+echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | tee /etc/apt/preferences.d/99nginx
 ```
 
 Устанавливаем nginx:
@@ -74,4 +79,11 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 ```
 apt update
 apt install nginx
+```
+Запустим и проверим
+```
+systemctl start nginx
+```
+```
+systemctl status nginx
 ```
