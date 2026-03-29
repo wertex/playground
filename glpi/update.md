@@ -21,7 +21,7 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.24/glpi-10.0.24
 ```
 Распаковываем  
 ```
-tar -xv glpi-10.0.24.tgz
+tar -xvf glpi-10.0.24.tgz
 ```
 В итоге у нас будет вот такая структура папок:  
 ```
