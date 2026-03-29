@@ -15,34 +15,33 @@ apt update
 ```
 Сам PHP ставится командой
 ```
-apt install php8.2 php8.2-cli php8.2-common
+apt install php8.4 php8.4-cli php8.4-common
 ```
 
 Документация предллагает поставить эти расширения
 ```
-apt install php8.2-{dom,fileinfo,filter,libxml,simplexml,xmlreader,xmlwriter,bcmath,curl,gd,intl,mbstring,mysqli,openssl,zlib,bz2,phar,zip,exif,ldap}
+apt install php8.2-{dom,fileinfo,filter,libxml,simplexml,tokenizer,xmlreader,xmlwriter,bcmath,curl,gd,intl,mbstring,mysqli,openssl,zlib,bz2,phar,zip,exif,ldap}
 ```
 
 Но при установке видим, что часть из них есть в 
-php8.2-common: fileinfo, phar, exif
-php8.2-xml: dom, simplexml, xmlreader, xmlwriter
+php8.4-common: fileinfo, phar, exif, tokenizer, session
+php8.4-xml: dom, simplexml, xmlreader, xmlwriter
 
 Сокращаем:
-apt install php8.2-{bcmath,bz2,curl,gd,intl,mbstring,mysqli,zip,ldap}
+apt install php8.4-{bcmath,bz2,curl,gd,intl,mbstring,mysqli,zip,ldap}
 
-Этих extensions нет для php8.2: filter, libxml, openssl, zlib
+Этих extensions нет для php8.4: filter, libxml, openssl, zlib
 
-Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.2-intl и apt install php8.2-mbstring и apt install php8.2-ldap
-
+Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.4-intl и apt install php8.4-mbstring и apt install php8.4-ldap
 на итог
 ```
-apt install php8.2 php8.2-cli php8.2-common php8.2-xml
-apt install php8.2-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
+apt install php8.4 php8.4-cli php8.4-common php8.4-xml
+```
+```
+apt install php8.4-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
 ```
 при обновлении на 11 версию запросило расширение bcmath
 проверить через консоль можно так: 
 ```
 php bin/console system:check_requirements --allow-superuser
 ```
-
-
