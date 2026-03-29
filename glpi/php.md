@@ -23,7 +23,8 @@ apt install php8.4 php8.4-cli php8.4-common
 apt install php8.2-{dom,fileinfo,filter,libxml,simplexml,tokenizer,xmlreader,xmlwriter,bcmath,curl,gd,intl,mbstring,mysqli,openssl,zlib,bz2,phar,zip,exif,ldap}
 ```
 
-Но при установке видим, что часть из них есть в 
+Но при установке видим, что часть из них есть в
+php8.4: cli, common
 php8.4-common: fileinfo, phar, exif, tokenizer, session
 php8.4-xml: dom, simplexml, xmlreader, xmlwriter
 
@@ -35,7 +36,7 @@ apt install php8.4-{bcmath,bz2,curl,gd,intl,mbstring,mysqli,zip,ldap}
 Почему то ни в какую не видел intl, mbstring, ldap, поэтому отдельно apt install php8.4-intl и apt install php8.4-mbstring и apt install php8.4-ldap
 на итог
 ```
-apt install php8.4 php8.4-cli php8.4-common php8.4-xml
+apt install php8.4 php8.4-xml
 ```
 ```
 apt install php8.4-{bcmath,curl,gd,intl,mbstring,mysqli,bz2,zip,ldap}
