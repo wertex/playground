@@ -50,17 +50,16 @@ curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/k
 Убеждаемся, что загруженный файл содержит правильный ключ:
 
 ```
-gpg --dry-run --quiet --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+gpg --dry-run --quiet --import --import-options import-show --homedir /home/wertex15 /usr/share/keyrings/nginx-archive-keyring.gpg
 ```
 
 Выходные данные должны содержать полный отпечаток 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 следующим образом:
 
 ```
-pub   rsa2048 2011-08-19 [SC] [expires: 2024-06-14]
+pub   rsa2048 2011-08-19 [SC] [expires: 2027-05-24]
       573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
 uid                      nginx signing key <signing-key@nginx.com>
 ```
-Если отпечаток отличается, удалите файл.
 
 Настраивает репозиторий для стабильных пакетов nginx:
 ```
