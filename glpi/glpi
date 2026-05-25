@@ -1,5 +1,5 @@
 
-https://github.com/glpi-project/glpi/releases/download/10.0.20/glpi-10.0.20.tgz
+https://github.com/glpi-project/glpi/releases/download/11.0.7/glpi-11.0.7.tgz
 
 tar -xvf glpi
 
