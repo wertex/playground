@@ -77,14 +77,14 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 ```
 
 Устанавливаем nginx:
-
 ```
-apt update
-apt install nginx
+apt update && apt install nginx
 ```
-Запустим и проверим
+Запустим
 ```
 systemctl start nginx
+```
+Проверим статус
 ```
 systemctl status nginx
 ```
