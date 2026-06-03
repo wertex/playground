@@ -1,7 +1,14 @@
 
 /usr/sbin/a2enmod rewrite
 
+Проверяем конфигурацию
+```
+/usr/sbin/apache2ctl -t
+```
+Рестартим
+```
 systemctl restart apache2
+```
 
 <VirtualHost *:80>
 
