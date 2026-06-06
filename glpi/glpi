@@ -8,3 +8,9 @@ tar -xvf glpi
 chown -R www-data:www-data /var/www/html/glpi
 
 проверяем la -la
+
+Часовые пояса 
+
+mariadb-tzinfo-to-sql /usr/share/zoneinfo | mariadb -u root mysql
+
+php /var/www/glpi/bin/console database:enable_timezones --allow-superuser
