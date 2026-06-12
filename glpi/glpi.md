@@ -38,6 +38,11 @@ crontab -u www-data -e
 ```
 * * * * * /usr/bin/php /var/www/glpi/front/cron.php &> /dev/null
 ```
+Перезапускаем cron для применения настроек
+```
+systemctl restart cron
+```
+
 
 
  
